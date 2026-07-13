@@ -5,6 +5,7 @@ const skipButton = document.getElementById('skip');
 let isRunning = false;
 let remainingTime = 1500; // 25 minutes in seconds
 let breakCount = 0;
+let interval;
 
 function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
@@ -43,7 +44,7 @@ function updateTimer() {
 }
 
 function updateButtonLabel() {
-    startPauseButton.textContent = isRunning ? 'Pause' : 'Start';
+    startPauseButton.textContent = isRunning ? 'Pause' : (interval ? 'Resume' : 'Start');
 }
 
 startPauseButton.addEventListener('click', startPauseTimer);
